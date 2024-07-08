@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FaHome, FaNetworkWired, FaBriefcase, FaEnvelope, FaBell, FaAngleDown, FaTh, FaBars, FaTimes } from 'react-icons/fa';
 import { FiSearch } from 'react-icons/fi';
 import { FaLinkedin } from 'react-icons/fa6';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,15 +13,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className='bg-white px-40'>
-      <div className='flex justify-between items-center py-3 px-4 md:px-8'>
+    <div className='bg-white px-4 md:px-40'>
+      <div className='flex justify-between items-center py-3'>
         <div className='flex items-center'>
           <FaLinkedin className="w-9 h-9 text-blue-600" />
           <div className="relative ml-4">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <FiSearch className="w-4 h-4 text-gray-500" />
             </div>
-            <input type="search" id="search" className="block w-100px p-2.5 pl-20 text-sm text-gray-900 border border-gray-300 rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500"placeholder="Search" />
+            <input type="search" id="search" className="block w-full p-2.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-transparent focus:ring-blue-500 focus:border-blue-500" placeholder="Search" />
           </div>  
         </div>
         <div className='md:hidden'>
@@ -28,7 +29,7 @@ const Navbar = () => {
             {menuOpen ? <FaTimes className="h-6 w-6" /> : <FaBars className="h-6 w-6" />}
           </button>
         </div>
-        <div className={`hidden md:flex space-x-8`}>
+        <div className={`hidden md:flex space-x-8 items-center`}>
           <a href="#" className='flex flex-col items-center'>
             <FaHome className='h-6 w-6' />
             <small className='font-SourceSansProLight text-sm'>Home</small>
@@ -49,6 +50,18 @@ const Navbar = () => {
             <FaBell className='h-6 w-6' />
             <small className="font-SourceSansProLight text-sm">Notifications</small>
           </a>
+          <div className="flex items-center">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton>
+                <button className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                  <small className="font-SourceSansProLight text-sm">Sign In</small>
+                </button>
+              </SignInButton>
+            </SignedOut>
+          </div>
         </div>
       </div>
       {menuOpen && (
@@ -80,6 +93,16 @@ const Navbar = () => {
                 <FaBell className='h-6 w-6 mr-2' />
                 <small className="font-SourceSansProLight text-sm">Notifications</small>
               </a>
+              <SignedOut>
+                <SignInButton>
+                  <button className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                    <small className="font-SourceSansProLight text-sm">Sign In</small>
+                  </button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </div>
           </div>
         </div>
