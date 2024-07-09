@@ -13,8 +13,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className='bg-white px-4 md:px-40'>
-      <div className='flex justify-between items-center py-3'>
+    <div className='bg-white px-4 md:px-40 shadow-sm'>
+      <div className='flex justify-between items-center py-3 shadow-sm'>
         <div className='flex items-center'>
           <FaLinkedin className="w-9 h-9 text-blue-600" />
           <div className="relative ml-4">
