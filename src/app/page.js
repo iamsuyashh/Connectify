@@ -7,13 +7,14 @@ import { currentUser } from '@clerk/nextjs/server'
 
 export default async function page() {
   const user = await currentUser()
-  // console.log(user)
+  // console.log(user)  
   return (
     <>
       <div className='pt-20 max-w-6xl mx-auto flex justify-between gap-8'>
             <SideBar user = {user}/>
+            <Feed user = {user}/>
             <News/>
-            <Feed/>
+           
       </div>
     </>
    

@@ -1,9 +1,17 @@
 import React from 'react'
+import { Avatar, AvatarImage } from "@/components/ui/avatar"
 
-const profile = () => {
+
+const ProfilePhoto = ({ src }) => {
   return (
-    <div>profile</div>
+    <div classname = 'mb-5 cursor-pointer'>
+    <Avatar>
+      <AvatarImage src={src} alt="banner" />
+    </Avatar>
+    </div>
+    
+
   )
 }
 
-export default profile
+export default ProfilePhoto
