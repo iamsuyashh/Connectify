@@ -14,7 +14,7 @@ import { readFileAsDataUrl } from "@/lib/utils"
 import Image from "next/image"
 
 
-export function PostDialog({ setOpen, open, src }) {
+export function PostDialog({ setOpen, open, src,user }) {
     const inputRef = useRef(null);
     const [selectedFile, setSelectedFile] = useState("");
     const [inputText, setInputText] = useState("");
@@ -49,7 +49,7 @@ export function PostDialog({ setOpen, open, src }) {
                     <DialogTitle className="flex gap-2">
                         <ProfilePhoto src={src} />
                         <div>
-                            <h1>Patel Mern Stack</h1>
+                            <h1>Add a Photo</h1>
                             <p className="text-xs">Post to anyone</p>
                         </div>
                     </DialogTitle>
