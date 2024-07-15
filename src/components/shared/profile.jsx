@@ -4,7 +4,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar"
 
 const ProfilePhoto = ({ src }) => {
   return (
-    <div classname = 'mb-5 cursor-pointer'>
+    <div className = 'mb-5 cursor-pointer'>
     <Avatar>
       <AvatarImage src={src} alt="banner" />
     </Avatar>

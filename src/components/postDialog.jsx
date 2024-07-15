@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -17,12 +18,11 @@ import Image from "next/image"
 export function PostDialog({ setOpen, open, src,user }) {
     const inputRef = useRef(null);
     const [selectedFile, setSelectedFile] = useState("");
-    const [inputText, setInputText] = useState("");
+    const [inputText,setInputText] = useState("")
 
     const changeHandler = (e) => {
         setInputText(e.target.value);
     }
-
     const fileChangeHandler = async (e) => {
         const file = e.target.files?.[0];
         if (file) {
@@ -31,16 +31,10 @@ export function PostDialog({ setOpen, open, src,user }) {
         }
     }
 
-    // const postActionHandler = async (formData) => {
-    //     const inputText = formData.get('inputText');
-    //     try {
-    //         await createPostAction(inputText, selectedFile);
-    //     } catch (error) {
-    //         console.log('error occurred', error);
-    //     }
-    //     setInputText("");
-    //     setOpen(false);
-    // }
+    const postActionHandler = async (formData) => {
+        const inputText = formData.get('inputText') ;
+        console.log(inputText);
+    }
 
     return (
         <Dialog open={open}>
@@ -54,14 +48,7 @@ export function PostDialog({ setOpen, open, src,user }) {
                         </div>
                     </DialogTitle>
                 </DialogHeader>
-                <form action={(formData) => {
-                    // const promise = postActionHandler(formData);
-                    // toast.promise(promise, {
-                    //     loading: 'Creating post...',
-                    //     success: 'Post created',
-                    //     error: 'Failed to create post'
-                    // })
-                }}>
+                <form action={postActionHandler}>
                     <div className="flex flex-col">
                         <Textarea
                             id="name"
