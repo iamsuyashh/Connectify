@@ -13,6 +13,8 @@ import { Images } from "lucide-react"
 import { useRef, useState } from "react"
 import { readFileAsDataUrl } from "@/lib/utils"
 import Image from "next/image"
+import { createPostAction } from "@/lib/serveractions"
+
 
 
 export function PostDialog({ setOpen, open, src,user }) {
@@ -33,7 +35,13 @@ export function PostDialog({ setOpen, open, src,user }) {
 
     const postActionHandler = async (formData) => {
         const inputText = formData.get('inputText') ;
-        console.log(inputText);
+        try {
+            await createPostAction(inputText,selectedFile);
+        } catch (error) {
+            console.log("error occured",error)
+        }
+        setInputText("");
+        setOpen(false)
     }
 
     return (
