@@ -57,7 +57,7 @@ export const getAllPosts = async () => {
     try {
         await connectDB();
         const posts = await Post.find().sort({ createdAt: -1 }).populate({ path: 'comments', options: { sort: { createdAt: -1 } } });
-        console.log(posts)
+        // console.log(posts)
         if (!posts) return [];
         return JSON.parse(JSON.stringify(posts));
     } catch (error) {

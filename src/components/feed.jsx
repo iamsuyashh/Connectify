@@ -7,7 +7,7 @@ import { getAllPosts } from '@/lib/serveractions';
 const feed = async  ({user}) => {
   const userData = JSON.parse(JSON.stringify(user));
   const posts = await getAllPosts();
-  console.log(posts) 
+  // console.log(posts) 
   return (  
     <>
       <div className='flex-1'>

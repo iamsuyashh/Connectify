@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 import ProfilePhoto from './shared/profile';
+import { getAllPosts } from '@/lib/serveractions';
 
-const SideBar = ({ user }) => {
+const SideBar = async ({ user }) => {
+    const posts =await getAllPosts();
     return (
         <div className="hidden md:block w-[20%] h-fit border border-grey-300">
             <div className="flex relative flex-col items-center">
@@ -34,7 +36,7 @@ const SideBar = ({ user }) => {
                     </div>
                     <div className='w-full flex justify-between items-center px-3 py-2 h'>
                         <p>Posts</p>
-                        <p className='text-blue-500 font-bold'>0</p>
+                        <p className='text-blue-500 font-bold'>{posts.length}</p>
                     </div>
                 </div>
         </div>

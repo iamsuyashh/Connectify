@@ -1,4 +1,4 @@
-import Navbar from '@/components/navbar'
+
 import React from 'react'
 import SideBar from '@/components/sidebar'
 import News from '@/components/news'
@@ -10,7 +10,7 @@ export default async function page() {
   // console.log(user)  
   return (
     <>
-      <div className='pt-20 max-w-6xl mx-auto flex justify-between gap-8'>
+      <div className='pt-10 max-w-6xl mx-auto flex justify-between gap-8'>
             <SideBar user = {user}/>
             <Feed user = {user}/>
             {/* <News className="hidden md:block"/> */}

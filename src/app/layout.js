@@ -1,6 +1,7 @@
 import {ClerkProvider} from '@clerk/nextjs'
 import Navbar from "@/components/navbar";
 import "./globals.css";
+import { Toaster } from 'sonner';
 
 export const metadata = {
   title: "connectify",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <main className="relative overflow-hidden">     
         <Navbar/>
+        <Toaster/>
           {children}
         </main>
       </body>
