@@ -36,7 +36,7 @@ const SideBar = async ({ user }) => {
                     </div>
                     <div className='w-full flex justify-between items-center px-3 py-2 h'>
                         <p>Posts</p>
-                        <p className='text-blue-500 font-bold'>{posts.length}</p>
+                        {/* <p className='text-blue-500 font-bold'>{posts.length}</p> */}
                     </div>
                 </div>
         </div>
